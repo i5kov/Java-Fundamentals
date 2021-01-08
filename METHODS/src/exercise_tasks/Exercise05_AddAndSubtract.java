@@ -9,7 +9,7 @@ public class Exercise05_AddAndSubtract {
         int firstNum = Integer.parseInt(scanner.nextLine());
         int secondNum = Integer.parseInt(scanner.nextLine());
         int thirdNum = Integer.parseInt(scanner.nextLine());
-        int result = subtract(firstNum, secondNum, thirdNum);
+//        int result = subtract(firstNum, secondNum, thirdNum);
         System.out.println(result);
     }
 
@@ -17,7 +17,5 @@ public class Exercise05_AddAndSubtract {
         return number + anotherNumber;
     }
 
-    private static int subtract(int firstNumber, int secondNumber, int thirdNumber) {
-        return getSum(firstNumber, secondNumber) - thirdNumber;
-    }
+
 }
