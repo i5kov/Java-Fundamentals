@@ -16,6 +16,9 @@ This repository contains solutions of all tasks during the course
     - Exercise Tasks - [Solutions](https://github.com/i5kov/Java-Fundamentals/tree/main/02.DATA%20TYPES%20AND%20VARIABLES/src/exercise_tasks) can be tested [here](https://judge.softuni.bg/Contests/Compete/Index/1228#0)
     - More Exercise Tasks - [Solutions](https://github.com/i5kov/Java-Fundamentals/tree/main/02.DATA%20TYPES%20AND%20VARIABLES/src/moreexercise_tasks) can be tested [here](https://judge.softuni.bg/Contests/Practice/Index/1270#0)
     <br/><br/>
-
+- **Arrays**
+    - Lab Tasks - [Solutions](https://github.com/i5kov/Java-Fundamentals/tree/main/03.ARRAYS/src/lab_tasks) can be tested [here](https://judge.softuni.bg/Contests/Practice/Index/1248#0)
+    - Exercise Tasks - [Solutions](https://github.com/i5kov/Java-Fundamentals/tree/main/03.ARRAYS/src/exercise_tasks) can be tested [here](https://judge.softuni.bg/Contests/Compete/Index/1247#0)
+    - More Exercise Tasks - [Solutions](https://github.com/i5kov/Java-Fundamentals/tree/main/03.ARRAYS/src/moreexercise_tasks) can be tested [here](https://judge.softuni.bg/Contests/Practice/Index/1279#0)
 
 
