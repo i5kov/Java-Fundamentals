@@ -20,5 +20,8 @@ This repository contains solutions of all tasks during the course
     - Lab Tasks - [Solutions](https://github.com/i5kov/Java-Fundamentals/tree/main/03.ARRAYS/src/lab_tasks) can be tested [here](https://judge.softuni.bg/Contests/Practice/Index/1248#0)
     - Exercise Tasks - [Solutions](https://github.com/i5kov/Java-Fundamentals/tree/main/03.ARRAYS/src/exercise_tasks) can be tested [here](https://judge.softuni.bg/Contests/Compete/Index/1247#0)
     - More Exercise Tasks - [Solutions](https://github.com/i5kov/Java-Fundamentals/tree/main/03.ARRAYS/src/moreexercise_tasks) can be tested [here](https://judge.softuni.bg/Contests/Practice/Index/1279#0)
-
-
+    <br/><br/>
+- **Methods**
+    - Lab Tasks - [Solutions](https://github.com/i5kov/Java-Fundamentals/tree/main/METHODS/src/lab_tasks) can be tested [here](https://judge.softuni.bg/Contests/Practice/Index/1260#0)
+    - Exercise Tasks - [Solutions](https://github.com/i5kov/Java-Fundamentals/tree/main/METHODS/src/exercise_tasks) can be tested [here](https://judge.softuni.bg/Contests/Compete/Index/1286#0)
+    - More Exercise Tasks - [Solutions](https://github.com/i5kov/Java-Fundamentals/tree/main/METHODS/src/moreexercise_tasks) can be tested [here](https://judge.softuni.bg/Contests/Practice/Index/1294#0)
