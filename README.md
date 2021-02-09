@@ -20,4 +20,13 @@ This repository contains solutions of all tasks during the course
 4. **Course Introduction**
     - Introduction of the course (Programming language: Java)
     - Lecture can be found [here](https://github.com/i5kov/Java-Fundamentals/blob/main/04.Course%20Introduction/Java-Fundamentals-Course-Introduction.pptx)
-<br/></br>
+<br/><br/>
+5. **Basic Syntax, Conditional Statements and Loops**
+    - Conditions of the tasks can be found [here](https://github.com/i5kov/Java-Fundamentals/tree/main/05.Basic%20Syntax%2C%20Conditional%20Statements%20and%20Loops/tasks%20conditions)
+    - Solutions of the tasks [here](https://github.com/i5kov/Java-Fundamentals/tree/main/05.Basic%20Syntax%2C%20Conditional%20Statements%20and%20Loops/src) and you can test them [here](https://judge.softuni.bg/Contests/1190/Basic-Syntax-Conditional-Statements-and-Loops-Lab)
+<br/><br/>
+6. **Basic Syntax, Conditional Statements and Loops**
+    - Conditions of the tasks can be found [here](https://github.com/i5kov/Java-Fundamentals/tree/main/06.EXERCISE-Basic%20Syntax%2C%20Conditional%20Statements%20and%20Loops/tasks%20conditions)
+    - Solutions of the tasks for:
+        - Exercise - [here](https://github.com/i5kov/Java-Fundamentals/tree/main/06.EXERCISE-Basic%20Syntax%2C%20Conditional%20Statements%20and%20Loops/src/lab_tasks) and can be tested [here](https://judge.softuni.bg/Contests/1226/Basic-Syntax-Conditional-Statements-and-Loops-Exercise)
+        - More Exercise - [here](https://github.com/i5kov/Java-Fundamentals/tree/main/06.EXERCISE-Basic%20Syntax%2C%20Conditional%20Statements%20and%20Loops/src/moreexercise_tasks) and can be tested [here](https://judge.softuni.bg/Contests/1461/Basic-Syntax-Conditional-Statements-and-Loops-More-Exercise)
