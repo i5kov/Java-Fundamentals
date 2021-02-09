@@ -1,5 +1,3 @@
-package exercise_tasks;
-
 import java.util.Scanner;
 
 public class Exercise09_PadawanEquipment {
