@@ -1,5 +1,3 @@
-package lab_tasks;
-
 import java.math.BigInteger;
 import java.util.Scanner;
 
