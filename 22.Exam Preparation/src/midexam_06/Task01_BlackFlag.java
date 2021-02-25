@@ -9,9 +9,7 @@ public class Task01_BlackFlag {
         int days = Integer.parseInt(scanner.nextLine());
         int dailyPlunder = Integer.parseInt(scanner.nextLine());
         double expectedPlunder = Double.parseDouble(scanner.nextLine());
-
         double gatheredPlunder = 0;
-
 
         for (int i = 1; i <= days; i++) {
             gatheredPlunder += dailyPlunder;
@@ -27,7 +25,7 @@ public class Task01_BlackFlag {
         if (gatheredPlunder >= expectedPlunder) {
             System.out.printf("Ahoy! %.2f plunder gained.", gatheredPlunder);
         } else {
-            System.out.printf("Collected only %.2f%% of the plunder.", (expectedPlunder - gatheredPlunder));
+            System.out.printf("Collected only %.2f%% of the plunder.", (gatheredPlunder / expectedPlunder) * 100);
         }
     }
 }
