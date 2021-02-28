@@ -5,7 +5,7 @@ public class Task02 {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        List<String> numbers = Arrays.stream(scanner.nextLine().split("\\s+")).collect(Collectors.toList());
+        List<String> numbersAsString = Arrays.stream(scanner.nextLine().split("\\s+")).collect(Collectors.toList());
         String input = scanner.nextLine();
 
         while (!input.equals("end")) {
@@ -16,41 +16,47 @@ public class Task02 {
                 case "reverse":
                     int reverseStart = Integer.parseInt(tokens[2]);
                     int reverseCount = Integer.parseInt(tokens[4]);
-                    List<String> reverse = new ArrayList<>();
-                    for (int i = reverseStart; i <= reverseStart + reverseCount - 1; i++) {
-                        reverse.add(numbers.get(i));
-                    }
-                    Collections.reverse(reverse);
+                    List<String> elementsForReverse = getElementsFromSpecificPosition(reverseStart, reverseCount, numbersAsString);
+                    Collections.reverse(elementsForReverse);
+                    setSpecificElementFromListInAnotherList(reverseStart, reverseCount, numbersAsString, elementsForReverse);
 
-                    int count = 0;
-                    for (int i = reverseStart; i <= reverseStart + reverseCount - 1; i++) {
-                        numbers.set(i, reverse.get(count));
-                        count++;
-                    }
                     break;
                 case "sort":
                     int sortStart = Integer.parseInt(tokens[2]);
                     int sortCount = Integer.parseInt(tokens[4]);
-                    List<String> sort = new ArrayList<>();
-                    for (int i = sortStart; i <= sortStart + sortCount - 1; i++) {
-                        sort.add(numbers.get(i));
-                    }
-                    Collections.sort(sort);
-                    int cnt = 0;
-                    for (int i = sortStart; i <= sortStart + sortCount - 1; i++) {
-                        numbers.set(i, sort.get(cnt));
-                        cnt++;
-                    }
+                    List<String> elementsForSort = getElementsFromSpecificPosition(sortStart, sortCount, numbersAsString);
+                    Collections.sort(elementsForSort);
+                    setSpecificElementFromListInAnotherList(sortStart, sortCount, numbersAsString, elementsForSort);
                     break;
                 case "remove":
                     int countForRemove = Integer.parseInt(tokens[1]);
-                    for (int i = 0; i < countForRemove; i++) {
-                        numbers.remove(0);
-                    }
+                    removeFirstCountElements(numbersAsString, countForRemove);
                     break;
             }
             input = scanner.nextLine();
         }
-        System.out.println(String.join(", ", numbers));
+        System.out.println(String.join(", ", numbersAsString));
+    }
+
+    private static void setSpecificElementFromListInAnotherList(int startFrom, int countOfElements, List<String> numbers, List<String> specificElements) {
+        int count = 0;
+        for (int i = startFrom; i <= startFrom + countOfElements - 1; i++) {
+            numbers.set(i, specificElements.get(count));
+            count++;
+        }
+    }
+
+    private static List<String> getElementsFromSpecificPosition(int startFrom, int countOfElements, List<String> list) {
+        List<String> elements = new ArrayList<>();
+        for (int i = startFrom; i <= startFrom + countOfElements - 1; i++) {
+            elements.add(list.get(i));
+        }
+        return elements;
+    }
+
+    private static void removeFirstCountElements(List<String> list, int firstCountElements) {
+        if (firstCountElements > 0) {
+            list.subList(0, firstCountElements).clear();
+        }
     }
 }
