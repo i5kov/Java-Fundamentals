@@ -1,5 +1,3 @@
-package lab_tasks;
-
 import java.util.*;
 
 public class Lab02_WordSynonyms {
