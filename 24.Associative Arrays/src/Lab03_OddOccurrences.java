@@ -1,5 +1,3 @@
-package lab_tasks;
-
 import java.util.*;
 import java.util.stream.Collectors;
 
