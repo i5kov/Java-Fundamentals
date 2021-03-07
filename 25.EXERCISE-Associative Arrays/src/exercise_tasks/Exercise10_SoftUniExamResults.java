@@ -1,54 +1,56 @@
 package exercise_tasks;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.TreeMap;
 
 public class Exercise10_SoftUniExamResults {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
-        Map<String, Integer> users = new TreeMap<>();
-        Map<String, Integer> submissions = new TreeMap<>();
+
+        Map<String, Integer> usersAndPoints = new HashMap<>();
+        Map<String, Integer> languageAndSubmissions = new HashMap<>();
 
         while (!input.equals("exam finished")) {
             String[] tokens = input.split("-");
             String username = tokens[0];
 
-            if (!input.contains("banned")) {
+            if (input.contains("banned")) {
+                usersAndPoints.remove(username);
+            } else {
                 String language = tokens[1];
                 int points = Integer.parseInt(tokens[2]);
 
-                if (!users.containsKey(username)) {
-                    users.put(username, points);
-                    if (!submissions.containsKey(language)) {
-                        submissions.put(language, 1);
-                    } else {
-                        submissions.put(language, submissions.get(language) + 1);
-                    }
-                } else {
-                    if (points >= users.get(username)) {
-                        users.put(username, points);
-                    }
-                    submissions.put(language, submissions.get(language) + 1);
+                languageAndSubmissions.putIfAbsent(language, 0);
+                languageAndSubmissions.put(language, languageAndSubmissions.get(language) + 1);
+
+                usersAndPoints.putIfAbsent(username, points);
+                if (points > usersAndPoints.get(username)) {
+                    usersAndPoints.put(username, points);
                 }
-            } else {
-                users.remove(username);
             }
+
             input = scanner.nextLine();
         }
         System.out.println("Results:");
-        users
-                .entrySet()
-                .stream()
-                .sorted((f, s) -> s.getValue().compareTo(f.getValue()))
-                .forEach(m -> System.out.printf("%s | %d%n", m.getKey(), m.getValue()));
+        printMapOrderedDescendingByValuesThenByKeys(usersAndPoints, '|');
+
         System.out.println("Submissions:");
-        submissions
-                .entrySet()
+        printMapOrderedDescendingByValuesThenByKeys(languageAndSubmissions, '-');
+    }
+
+    private static void printMapOrderedDescendingByValuesThenByKeys(Map<String, Integer> map, char characterForPrinting) {
+        map.entrySet()
                 .stream()
-                .sorted((f, s) -> s.getValue().compareTo(f.getValue()))
-                .forEach(m -> System.out.printf("%s - %d%n", m.getKey(), m.getValue()));
+                .sorted((f, s) -> {
+                    int result = Integer.compare(s.getValue(), f.getValue());
+                    if (result == 0) {
+                        result = f.getKey().compareTo(s.getKey());
+                    }
+                    return result;
+                })
+                .forEach(e -> System.out.printf("%s %c %d%n", e.getKey(), characterForPrinting, e.getValue()));
     }
 }

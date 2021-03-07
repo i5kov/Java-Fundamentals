@@ -9,7 +9,8 @@ public class Exercise05_SoftUniParking {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int lines = Integer.parseInt(scanner.nextLine());
-        Map<String, String> allUsers = new LinkedHashMap<>();
+
+        Map<String, String> users = new LinkedHashMap<>();
 
         for (int i = 0; i < lines; i++) {
             String[] tokens = scanner.nextLine().split("\\s+");
@@ -18,24 +19,24 @@ public class Exercise05_SoftUniParking {
 
             switch (command) {
                 case "register":
-                    String carNumber = tokens[2];
-                    if (!allUsers.containsKey(username)) {
-                        allUsers.put(username, carNumber);
-                        System.out.printf("%s registered %s successfully%n", username, carNumber);
+                    String licensePlateNumber = tokens[2];
+                    String registered = users.putIfAbsent(username, licensePlateNumber);
+                    if (registered != null) {
+                        System.out.printf("ERROR: already registered with plate number %s%n", licensePlateNumber);
                     } else {
-                        System.out.printf("ERROR: already registered with plate number %s%n", carNumber);
+                        System.out.printf("%s registered %s successfully%n", username, licensePlateNumber);
                     }
                     break;
                 case "unregister":
-                    if (allUsers.containsKey(username)) {
-                        allUsers.remove(username);
-                        System.out.printf("%s unregistered successfully%n", username);
-                    } else {
+                    if (!users.containsKey(username)) {
                         System.out.printf("ERROR: user %s not found%n", username);
+                    } else {
+                        users.remove(username);
+                        System.out.printf("%s unregistered successfully%n", username);
                     }
                     break;
             }
         }
-        allUsers.forEach((k, v) -> System.out.println(k + " => " + v));
+        users.forEach((k, v) -> System.out.printf("%s => %s%n", k, v));
     }
 }

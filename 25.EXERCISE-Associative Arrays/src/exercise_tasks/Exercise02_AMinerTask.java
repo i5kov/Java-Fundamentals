@@ -13,13 +13,11 @@ public class Exercise02_AMinerTask {
 
         while (!command.equals("stop")) {
             String resource = command;
-            Integer quantity = Integer.parseInt(scanner.nextLine());
+            int quantity = Integer.parseInt(scanner.nextLine());
 
-            Integer occurrenceOfResource = resources.get(resource);
-            if (occurrenceOfResource == null) {
-                occurrenceOfResource = 0;
-            }
-            resources.put(resource, occurrenceOfResource + quantity);
+            resources.putIfAbsent(resource, 0);
+            Integer updatedQuantity = resources.get(resource) + quantity;
+            resources.put(resource, updatedQuantity);
 
             command = scanner.nextLine();
         }

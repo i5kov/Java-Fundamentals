@@ -9,18 +9,15 @@ public class Exercise01_CountCharsInAString {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine().replaceAll("\\s+", "");
-        Map<Character, Integer> charOccurrences = new LinkedHashMap<>();
+        Map<Character, Integer> characterOccurrences = new LinkedHashMap<>();
 
         for (int i = 0; i < input.length(); i++) {
-            Integer occurrence = charOccurrences.get(input.charAt(i));
-            if (occurrence == null) {
-                occurrence = 0;
-            }
-            charOccurrences.put(input.charAt(i), occurrence + 1);
-        }
+            char currentChar = input.charAt(i);
 
-        for (Map.Entry<Character, Integer> entry : charOccurrences.entrySet()) {
-            System.out.println(entry.getKey() + " -> " + entry.getValue());
+            characterOccurrences.putIfAbsent(currentChar, 0);
+            Integer countOfChar = characterOccurrences.get(currentChar) + 1;
+            characterOccurrences.put(currentChar, countOfChar);
         }
+        characterOccurrences.forEach((key, value) -> System.out.println(key + " -> " + value));
     }
 }

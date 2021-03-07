@@ -7,29 +7,25 @@ public class Exercise07_StudentAcademy {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int lines = Integer.parseInt(scanner.nextLine());
-        Map<String, List<Double>> students = new HashMap<>();
+
+        Map<String, List<Double>> students = new LinkedHashMap<>();
 
         for (int i = 0; i < lines; i++) {
-            String studentName = scanner.nextLine();
-            double grade = Double.parseDouble(scanner.nextLine());
+            String name = scanner.nextLine();
+            Double grade = Double.parseDouble(scanner.nextLine());
 
-            if (!students.containsKey(studentName)) {
-                students.put(studentName, new ArrayList<>());
-            }
-            students.get(studentName).add(grade);
+            students.putIfAbsent(name, new ArrayList<>());
+            students.get(name).add(grade);
         }
 
         students.entrySet()
                 .stream()
-                .filter(e -> e.getValue().stream().mapToDouble(Double::doubleValue).average().getAsDouble() >= 4.50)
+                .filter(e -> e.getValue().stream().mapToDouble(g -> g).average().getAsDouble() >= 4.50)
                 .sorted((f, s) -> {
-                    double secondAverage = s.getValue().stream().mapToDouble(Double::doubleValue).average().getAsDouble();
-                    double firstAverage = f.getValue().stream().mapToDouble(Double::doubleValue).average().getAsDouble();
-                    return Double.compare(secondAverage, firstAverage);
+                    double firstAverageGrade = f.getValue().stream().mapToDouble(g -> g).average().getAsDouble();
+                    double secondAverageGrade = s.getValue().stream().mapToDouble(g -> g).average().getAsDouble();
+                    return Double.compare(secondAverageGrade, firstAverageGrade);
                 })
-                .forEach(s -> {
-                    double averageGrade = s.getValue().stream().mapToDouble(Double::doubleValue).average().getAsDouble();
-                    System.out.printf("%s -> %.2f%n", s.getKey(), averageGrade);
-                });
+                .forEach(e -> System.out.printf("%s -> %.2f%n", e.getKey(), e.getValue().stream().mapToDouble(g -> g).average().getAsDouble()));
     }
 }

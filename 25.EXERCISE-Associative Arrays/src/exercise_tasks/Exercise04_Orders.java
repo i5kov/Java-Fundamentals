@@ -8,27 +8,26 @@ public class Exercise04_Orders {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Map<String, Double> prices = new LinkedHashMap<>();
-        Map<String, Integer> quantities = new LinkedHashMap<>();
+        String input = scanner.nextLine();
 
-        String command = scanner.nextLine();
+        Map<String, Integer> productsQuantities = new LinkedHashMap<>();
+        Map<String, Double> productsPrices = new LinkedHashMap<>();
 
-        while (!command.equals("buy")) {
-            String[] tokens = command.split("\\s+");
+        while (!input.equals("buy")) {
+            String[] tokens = input.split("\\s+");
             String product = tokens[0];
             double price = Double.parseDouble(tokens[1]);
             int quantity = Integer.parseInt(tokens[2]);
 
-            if (!quantities.containsKey(product)) {
-                quantities.put(product, quantity);
-                prices.put(product, price * quantity);
-            } else {
-                quantities.put(product, quantities.get(product) + quantity);
-                prices.put(product, quantities.get(product) * price);
-            }
-            command = scanner.nextLine();
+            productsQuantities.putIfAbsent(product, 0);
+            productsQuantities.put(product, productsQuantities.get(product) + quantity);
+
+            productsPrices.putIfAbsent(product, productsQuantities.get(product) * price);
+            productsPrices.put(product, price * productsQuantities.get(product));
+
+            input = scanner.nextLine();
         }
 
-        prices.forEach((key, value) -> System.out.printf("%s -> %.2f%n", key, value));
+        productsPrices.forEach((k, v) -> System.out.printf("%s -> %.2f%n", k, v));
     }
 }
