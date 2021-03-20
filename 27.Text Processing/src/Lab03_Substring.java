@@ -1,5 +1,3 @@
-package lab_tasks;
-
 import java.util.Scanner;
 
 public class Lab03_Substring {
