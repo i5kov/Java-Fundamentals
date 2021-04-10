@@ -56,3 +56,5 @@ This repository contains solutions of all tasks during the course
     * Regular Expressions (Definition and Pattern, Predefined Character Classes)
     * Quantifiers and Grouping
     * Back references
+* **Final Exam**
+    * 3 tasks for 4 hours must be solved + test
